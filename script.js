@@ -1,4 +1,4 @@
-const caixaPrincipal=document.querySelector(".caixa-principal");
+ const caixaPrincipal=document.querySelector(".caixa-principal");
 const caixaPerguntas=document.querySelector(".caixa-Perguntas");
 const caixaAlternativa=document.querySelector(".caixa-alternativas");
 const caixaResultado=document.querySelector(".caixa-resultado");
@@ -11,16 +11,14 @@ const textoResultado=document.querySelector(".texto-resultado");
                 {
                 texto:"Isso e assustador!",
                 afirmacao:"No inicio,eu ficaria com medo do que essa tecnologia pode fazer."
-                }
+                },
                 {
                 texto:"Isso é maravilhoso!",
                 afirmacao:"quis saber como usar IA no seu dia a dia"
                 }
             ]
-        }
-    ]
-
-    {
+        },
+        {
         enunciado: "Com a descoberta desta tecnologia, chamada Inteligência Artificial, uma professora de tecnologia da escola decidiu fazer uma sequência de aulas sobre esta tecnologia. No fim de uma aula ela pede que você escreva um trabalho sobre o uso de IA em sala de aula. Qual atitude você toma?",
         alternativas: [
             {
@@ -100,4 +98,15 @@ function mostraAlternativas(){
 
 function respostaSelecionada(opcaoSelecionada) {
     const afirmacoes = opcaoSelecionada.afirmacao;
+    historiaFinal += afirmacoes + " ";
+    atual++;
+    mostraPergunta();
+}
 
+function mostraResultado() {
+    caixaPerguntas.textContent = "Em 2049...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
+}
+
+mostraPergunta();
